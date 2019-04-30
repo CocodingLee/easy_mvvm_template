@@ -1,0 +1,26 @@
+model:                                                                                                  #创建model时的配置，下面为一系列Hash数组，每一个对应一个模板文件
+  -
+    from: model/model.h                                                                                 #一个模板文件，内容是erb模板，下面有介绍。该路径基于模板目录
+    to: <%= model_name %>/<%= model_name %>Model.h        #这个模板文件渲染后的路径，这个路径是个erb字符串，渲染后得到真实路径。该路径是基于项目目录
+  -
+    from: model/model.m
+    to: <%= model_name %>/<%= model_name %>Model.m
+page:
+  -
+    from: view/view.h
+    to: <%= model_name %>/Views/<%= page_name %>View.h
+  -
+    from: view/view.m
+    to: <%= model_name %>/Views/<%= page_name %>View.m
+  -
+    from: viewcontroller/viewcontroller.h
+    to: <%= model_name %>/ViewControllers/<%= page_name %>ViewController.h
+  -
+    from: viewcontroller/viewcontroller.m
+    to: <%= model_name %>/ViewControllers/<%= page_name %>ViewController.m
+  -
+    from: viewmodel/viewmodel.h
+    to: <%= model_name %>/ViewModels/<%= page_name %>ViewModel.h
+  -
+    from: viewmodel/viewmodel.m
+    to: <%= model_name %>/ViewModels/<%= page_name %>ViewModel.m
